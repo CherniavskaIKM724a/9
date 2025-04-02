@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+   int i,j,n,m;
+   cout<<"Enter the number of rows: "; cin>>n;
+   cout<<"Enter the number of columns: ";cin>>m;
+   srand(time(0));
+   int a[n][m],ar[n];
+   for(i=0;i<n;i++)
+   {
+       for(j=0;j<m;j++)
+       {
+           a[i][j]= -10 + rand()% 51; //[-10;40]
+           printf("%4d",a[i][j]);
+       }
+       printf("\n");
+   }
+   for(i=0;i<n;i++)
+   {
+       int mini=a[i][0],sum=0;
+       for(j=0;j<m;j++)
+       {
+          if(a[i][j]<mini)mini=a[i][j];
+          sum+=a[i][j];
+       }
+       cout<<"min element of the string "<< i << " : " <<mini<<"\n";
+       if (mini>=0){cout<<"sum of string elements "<< i <<" : "<<sum<<"\n";};
+   }
+    return 0;
+}
